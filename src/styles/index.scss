@@ -1,0 +1,25 @@
+// Import des utilitaires
+@use './utils/variables' as vars;
+@use './utils/mixins' as mixins;
+@use './utils/animations' as anims;
+
+// Import des styles des composants
+@use './pages/home';
+@use './pages/about';
+@use './pages/housings';
+@use './pages/error404';
+
+// Import de la police (CSS natif, après les @use)
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+// Styles globaux
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Les directives @use doivent toujours avoir un préfixe vars. pour les variables.
+body {
+  font-family: vars.$font-primary, vars.$font-secondary;
+}
