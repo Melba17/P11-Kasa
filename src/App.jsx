@@ -4,11 +4,13 @@ import Home from './pages/home';
 import About from './pages/about';
 import Housings from './pages/housings';
 import Error404 from './pages/error404';
-import './styles/App.scss';
+import Header from './components/header';
+
 
 function App() {
   return (
     <Router>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

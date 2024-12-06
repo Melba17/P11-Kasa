@@ -1,0 +1,31 @@
+@charset "UTF-8";
+.header {
+  display: flex; /* Disposition en ligne */
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 5rem; /* Espacement interne pour aérer le contenu */
+  background-color: #fff;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center; /* Centre le logo verticalement */
+}
+.header__logo img {
+  width: 210px; /* Taille du logo */
+  height: auto; /* Préserve les proportions */
+}
+
+.header__nav {
+  display: flex; /* Les liens sont affichés en ligne */
+  gap: 4rem; /* Espacement entre les liens */
+}
+.header__nav a {
+  text-decoration: none; /* Supprime le soulignement des liens */
+  color: #000000;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.header__nav a.active {
+  text-decoration: underline; /* Souligne le lien actif */
+}/*# sourceMappingURL=header.css.map */

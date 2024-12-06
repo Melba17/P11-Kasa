@@ -3,8 +3,6 @@ import globals from 'globals';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
-import prettier from 'eslint-plugin-prettier';
-import prettierConfig from 'eslint-config-prettier';
 
 export default [
   { ignores: ['dist', 'node_modules'] }, // Ignorer les dossiers spécifiques
@@ -25,7 +23,6 @@ export default [
       react, // Plugin React
       'react-hooks': reactHooks, // Plugin React Hooks
       'react-refresh': reactRefresh, // Plugin React Refresh pour Vite
-      prettier, // Plugin Prettier
     },
     rules: {
       // Règles recommandées par ESLint
@@ -38,20 +35,16 @@ export default [
       // Règles pour React Hooks
       ...reactHooks.configs.recommended.rules,
 
-      // Désactiver les règles qui pourraient entrer en conflit avec Prettier
-      ...prettierConfig.rules,
-
-      // Intègre Prettier comme une règle
-      'prettier/prettier': 'error', // Considère les erreurs Prettier comme des erreurs ESLint
-
-      // Désactive l'import obligatoire de React pour JSX
-      'react/react-in-jsx-scope': 'off',
-
-      // Ignorer les variables inutilisées nommées "React"
+      // Règles personnalisées
+      'quotes': ['off'], // Autorise '' et ""
+      'semi': ['error', 'always'], // Forcer les points-virgules
+      'linebreak-style': ['off'], // Désactive les erreurs sur CRLF et LF
+      'indent': ['error', 2], // Indentation de 2 espaces
+      'react/react-in-jsx-scope': 'off', // Désactive l'import React obligatoire
       'no-unused-vars': [
-        'warn', // Signale un avertissement au lieu d'une erreur
-        { varsIgnorePattern: '^React$' }, // Ignore les imports inutilisés pour React
-      ],
+        'warn',
+        { varsIgnorePattern: '^React$' },
+      ], // Ignorer les variables inutilisées "React"
     },
   },
 ];

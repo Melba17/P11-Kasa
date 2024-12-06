@@ -1,8 +1,5 @@
-# React + Vite
+# P11 - Kasa avec React, React Router + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Utilisation de SASS pour gérer le CSS et l'implémentation des animations CSS
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Kasa, nouvelle plateforme web, est dans le métier de la location d’appartements entre particuliers et fait partie des leaders dans ce domaine en France.
