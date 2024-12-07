@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
 * {
   margin: 0;
@@ -7,4 +8,26 @@
 
 body {
   font-family: "Montserrat", sans-serif, Arial, sans-serif;
+}
+
+/* html, body : doivent occuper toute la hauteur de la fenêtre pour que le footer puisse se positionner correctement en bas */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Force le body et html à remplir la hauteur de la fenêtre */
+  display: flex;
+  flex-direction: column;
+}
+
+/* #root : Assure une structure flexible avec React => c'est le conteneur principal (injecté par React). On applique ici une flexbox pour organiser Header, main (contenu principal) et Footer */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Assure que le contenu couvre toute la hauteur de la fenêtre */
+}
+
+/* main : Étend le contenu entre le header et le footer, même si la page est vide */
+main {
+  flex: 1; /* Permet au contenu principal d'occuper tout l'espace disponible entre le Header et le Footer */
 }/*# sourceMappingURL=index.css.map */
