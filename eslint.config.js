@@ -41,6 +41,7 @@ export default [
       'linebreak-style': ['off'], // Désactive les erreurs sur CRLF et LF
       'no-irregular-whitespace': 'off',
       'indent': ['error', 2], // Indentation de 2 espaces
+      "react/no-unescaped-entities": "off",
       'react/react-in-jsx-scope': 'off', // Désactive l'import React obligatoire
       'no-unused-vars': [
         'warn',

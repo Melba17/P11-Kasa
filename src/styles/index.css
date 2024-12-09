@@ -1,5 +1,37 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+.error404 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+.error404__title {
+  font-size: 18rem;
+  color: #ff6060;
+  margin-top: 20rem;
+  margin-bottom: 3rem;
+}
+.error404__message {
+  font-size: 2.25rem;
+  font-weight: 500;
+  color: #ff6060;
+  margin-bottom: 5rem;
+}
+.error404__link {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #000;
+  text-decoration: underline;
+  margin-bottom: 25rem;
+  transition: all 0.3s ease;
+}
+.error404__link:hover {
+  color: #ff6060;
+}
+
 * {
   margin: 0;
   padding: 0;
