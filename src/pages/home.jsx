@@ -1,15 +1,15 @@
 import React from 'react';
-import Banner from '../components/banner'; 
-import '../styles/components/banners.scss'; 
+import Banner from '../components/banner'; // Import du composant Banner
+
 
 function Home() {
   return (
     <div>
       <Banner
-        imageSrc="/img/home.jpg"
+        imageSrc="/img/home.jpg" // Image spécifique
         altText="Paysage de la bannière de la page d'accueil"
         overlayText="Chez vous, partout et ailleurs"
-        className="homeBanner"
+        className="homeBanner" // Classe spécifique à cette bannière
       />
     </div>
   );

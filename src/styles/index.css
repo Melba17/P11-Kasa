@@ -1,5 +1,45 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+.about__sections {
+  margin: 20px auto;
+  padding: 0 20px;
+  max-width: 900px;
+}
+
+.about__section {
+  margin-bottom: 10px;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.about__section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #ff6060;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.about__section-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+.about__section-header .arrow {
+  transition: transform 0.3s ease;
+}
+.about__section-header .arrow.open {
+  transform: rotate(180deg);
+}
+.about__section-content {
+  padding: 15px 20px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+}
+
 .error404 {
   display: flex;
   flex-direction: column;
@@ -30,6 +70,127 @@
 }
 .error404__link:hover {
   color: #ff6060;
+}
+
+/* STYLE SPÉCIFIQUE POUR LA BANNIÈRE DE LA PAGE D'ACCUEIL/HOME */
+.homeBanner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 223px;
+  width: 88%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 10px auto;
+  text-align: center;
+}
+.homeBanner .banner__image {
+  display: none;
+}
+.homeBanner .banner__text {
+  font-size: 2.8rem;
+  font-weight: bold;
+  z-index: 1;
+  color: #fff;
+  text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000, 0px 4px 5px rgba(0, 0, 0, 0.6);
+}
+.homeBanner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  z-index: 0;
+}
+
+/* STYLE SPÉCIFIQUE POUR LA BANNIÈRE DE LA PAGE À PROPOS/ABOUT */
+.aboutBanner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 223px;
+  width: 88%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  margin: 10px auto;
+}
+.aboutBanner .banner__image {
+  display: none;
+}
+.aboutBanner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  z-index: 0;
+}
+
+/* STYLE SPÉCIFIQUE POUR LA BANNIÈRE GALERIE DE LA PAGE LOGEMENTS/HOUSINGS */
+.header {
+  display: flex; /* Disposition en ligne */
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 5rem; /* Espacement interne pour aérer le contenu */
+  background-color: #fff;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center; /* Centre le logo verticalement */
+}
+.header__logo img {
+  width: 210px; /* Taille du logo */
+  height: auto; /* Préserve les proportions */
+}
+
+.header__nav {
+  display: flex; /* Les liens sont affichés en ligne */
+  gap: 4rem; /* Espacement entre les liens */
+}
+.header__nav a {
+  text-decoration: none; /* Supprime le soulignement des liens */
+  color: #000000;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.header__nav a.active {
+  text-decoration: underline; /* Souligne le lien actif */
+}
+
+.footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+  bottom: 0; /* Ancrer en bas */
+}
+.footer .footer__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.footer .footer__logo {
+  max-width: 100px;
+  margin-top: 1rem;
+}
+.footer p {
+  font-size: 0.875rem;
+  margin-top: 1rem;
 }
 
 * {
