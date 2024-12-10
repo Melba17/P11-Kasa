@@ -4,14 +4,14 @@
 @use './utils/animations' as anims;
 
 // Import des styles des composants
-@import './pages/home';
-@import './pages/about';
-@import './pages/housings';
-@import './pages/error404';
+@use './pages/home';
+@use './pages/about';
+@use './pages/housings';
+@use './pages/error404';
 
-@import './components/banners';
-@import './components/header';
-@import './components/footer';
+@use './components/banners';
+@use './components/header';
+@use './components/footer';
 
 
 

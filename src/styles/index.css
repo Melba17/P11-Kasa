@@ -1,13 +1,53 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+.home__gallery-container {
+  padding: 40px 20px;
+}
+
+.home__gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 30px auto;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+}
+
+.home__card {
+  background-color: #ff6060;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.home__card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.home__card-image {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.home__card-title {
+  margin: 10px 0;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0 10px;
+}
+
 .about__sections {
-  margin: 20px auto;
+  margin: 35px auto;
   padding: 0 20px;
-  max-width: 900px;
+  max-width: 1050px;
 }
 
 .about__section {
-  margin-bottom: 10px;
+  margin-bottom: 35px;
   background-color: #f6f6f6;
   border-radius: 10px;
   overflow: hidden;
@@ -18,15 +58,18 @@
   align-items: center;
   padding: 15px 20px;
   background-color: #ff6060;
+  border-radius: 10px;
   color: #fff;
   font-weight: bold;
   cursor: pointer;
 }
 .about__section-header h3 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 .about__section-header .arrow {
+  width: 30px;
+  height: 30px;
   transition: transform 0.3s ease;
 }
 .about__section-header .arrow.open {
@@ -34,10 +77,10 @@
 }
 .about__section-content {
   padding: 15px 20px;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   line-height: 1.5;
   color: #333;
-  background-color: #fff;
+  background-color: #f6f6f6;
 }
 
 .error404 {

@@ -1,0 +1,42 @@
+.home__gallery-container {
+    padding: 40px 20px; // Espacement autour de la galerie
+  }
+  
+  .home__gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // 3 colonnes fixes
+    gap: 40px; // Espacement entre les cartes
+    max-width: 1200px; // Largeur maximale de la galerie
+    margin: 30px auto; // Centrer la galerie horizontalement
+    background-color: #f6f6f6; // Couleur de fond pour la section contenant les cartes
+    border-radius: 10px;
+  }
+  
+  .home__card {
+    background-color: #ff6060;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+  
+    &-image {
+      width: 100%;
+      height: 200px; // Hauteur fixe pour toutes les images
+      object-fit: cover; // Maintient le ratio d'aspect des images
+    }
+  
+    &-title {
+      margin: 10px 0;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 0 10px;
+    }
+  }
+  
