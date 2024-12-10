@@ -1,25 +1,32 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
 .home__gallery-container {
-  padding: 40px 20px;
+  background-color: #f6f6f6;
+  width: 88%;
+  margin: 30px auto;
+  border-radius: 15px;
+  padding: 50px;
+  display: flex;
+  justify-content: center; /* Centre la galerie horizontalement */
+  box-sizing: border-box; /* Inclut le padding dans la largeur */
+  overflow: hidden; /* Empêche les enfants de déborder */
 }
 
 .home__gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  max-width: 1200px;
-  margin: 30px auto;
-  background-color: #f6f6f6;
-  border-radius: 10px;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes fixes */
+  gap: 50px;
+  width: 100%; /* La galerie s'adapte à la largeur du conteneur */
+  max-width: 100%; /* Empêche de dépasser la largeur parent */
+  justify-items: center; /* Centre les cartes dans les colonnes */
 }
 
 .home__card {
-  background-color: #ff6060;
-  border-radius: 10px;
+  position: relative;
+  width: 340px;
+  height: 340px;
   overflow: hidden;
-  text-align: center;
-  color: #fff;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -29,15 +36,27 @@
 }
 .home__card-image {
   width: 100%;
-  height: 200px;
+  height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+     object-fit: cover; /* Remplissage sans déformation */
+}
+.home__card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)); /* Voile du haut vers le bas */
+  z-index: 1;
 }
 .home__card-title {
-  margin: 10px 0;
-  font-size: 1rem;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  font-size: 1.125rem;
   font-weight: bold;
-  padding: 0 10px;
+  z-index: 2;
 }
 
 .about__sections {
