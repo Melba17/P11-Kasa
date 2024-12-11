@@ -1,27 +1,27 @@
+@use '../utils/mixins' as mixins;
+@use '../utils/variables' as vars;
+
 .footer {
-    background-color: #000; 
-    color: #fff; 
+    background-color: vars.$black; 
+    color: vars.$white; 
     text-align: center; 
-    padding: 20px 0; 
+    padding: vars.$base-padding 0;
     width: 100%;  
     bottom: 0; /* Ancrer en bas */
   
     .footer__content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px; 
+      @include mixins.flex-center(column);
+      gap: vars.$small-font-size;
     }
   
     .footer__logo {
       max-width: 100px;
-      margin-top: 1rem;
+      margin-top: vars.$base-margin;
     }
   
     p {
-      font-size: 0.875rem;
-      margin-top: 1rem; 
+      font-size: vars.$small-font-size;
+      margin-top: vars.$base-margin; 
     }
   }
   

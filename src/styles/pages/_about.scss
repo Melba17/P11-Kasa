@@ -1,24 +1,26 @@
+@use '../utils/mixins' as mixins;
+@use '../utils/variables' as vars;
+
 .about__sections {
-    margin: 35px auto;
-    padding: 0 20px;
+    margin: vars.$large-margin auto;
+    padding: 0 vars.$base-padding;
     max-width: 1050px;
   }
   
   .about__section {
-    margin-bottom: 35px;
-    background-color: #f6f6f6;
+    margin-bottom: vars.$large-margin;
+    background-color: vars.$light-bg;
     border-radius: 10px;
     overflow: hidden;
   
     &-header {
-      display: flex;
+      @include mixins.flex-center;
       justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-      background-color: #ff6060; 
+      padding: vars.$base-padding;
+      background-color: vars.$primary-color; 
       border-radius: 10px;
-      color: #fff;
-      font-weight: bold;
+      color: vars.$white;
+      font-weight: vars.$font-weight-bold;
       cursor: pointer;
   
       h3 {
@@ -38,11 +40,11 @@
     }
   
     &-content {
-      padding: 15px 20px;
+      padding: vars.$base-padding;
       font-size: 1.1rem;
       line-height: 1.5;
-      color: #333;
-      background-color: #f6f6f6;
+      color: vars.$dark-text;
+      background-color: vars.$light-bg;
     }
   }
   

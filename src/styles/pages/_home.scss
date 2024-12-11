@@ -1,19 +1,21 @@
+@use '../utils/mixins' as mixins;
+@use '../utils/variables' as vars;
+
 .home__gallery-container {
-    background-color: #f6f6f6; 
+    background-color: vars.$light-bg; 
     width: 88%; 
     margin: 30px auto; 
     border-radius: 15px; 
     padding: 50px; 
-    display: flex;
-    justify-content: center; /* Centre la galerie horizontalement */
+    @include mixins.flex-center;
     box-sizing: border-box; /* Inclut le padding dans la largeur */
     overflow: hidden; /* Empêche les enfants de déborder */
   }
   
   .home__gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colonnes fixes */
-    gap: 50px; 
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
     width: 100%; /* La galerie s'adapte à la largeur du conteneur */
     max-width: 100%; /* Empêche de dépasser la largeur parent */
     justify-items: center; /* Centre les cartes dans les colonnes */
@@ -53,9 +55,10 @@
       position: absolute;
       bottom: 20px;
       left: 20px;
-      color: #fff;
+      right: 20px;
+      color: vars.$white;
       font-size: 1.125rem;
-      font-weight: bold;
+      font-weight: vars.$font-weight-bold;
       z-index: 2;
     }
   }

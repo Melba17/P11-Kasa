@@ -1,7 +1,24 @@
 // Définition des mixins réutilisables
-@mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+@mixin banner-overlay($background-color) {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $background-color;
+    border-radius: 15px;
+    z-index: 0;
   }
+
+  // row est optionnel ici = valeur par défaut, on peut donc mettre ce qu'on veut dans le code
+  @mixin flex-center($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
   

@@ -7,14 +7,16 @@
   border-radius: 15px;
   padding: 50px;
   display: flex;
-  justify-content: center; /* Centre la galerie horizontalement */
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box; /* Inclut le padding dans la largeur */
   overflow: hidden; /* Empêche les enfants de déborder */
 }
 
 .home__gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colonnes fixes */
+  grid-template-columns: repeat(3, 1fr);
   gap: 50px;
   width: 100%; /* La galerie s'adapte à la largeur du conteneur */
   max-width: 100%; /* Empêche de dépasser la largeur parent */
@@ -53,9 +55,10 @@
   position: absolute;
   bottom: 20px;
   left: 20px;
+  right: 20px;
   color: #fff;
   font-size: 1.125rem;
-  font-weight: bold;
+  font-weight: 700;
   z-index: 2;
 }
 
@@ -73,13 +76,15 @@
 }
 .about__section-header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
-  padding: 15px 20px;
+  justify-content: center;
+  justify-content: space-between;
+  padding: 20px;
   background-color: #ff6060;
   border-radius: 10px;
   color: #fff;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
 }
 .about__section-header h3 {
@@ -95,7 +100,7 @@
   transform: rotate(180deg);
 }
 .about__section-content {
-  padding: 15px 20px;
+  padding: 20px;
   font-size: 1.1rem;
   line-height: 1.5;
   color: #333;
@@ -114,7 +119,7 @@
   font-size: 18rem;
   color: #ff6060;
   margin-top: 20rem;
-  margin-bottom: 3rem;
+  margin: 20rem 0 3rem;
 }
 .error404__message {
   font-size: 2.25rem;
@@ -128,26 +133,29 @@
   color: #000;
   text-decoration: underline;
   margin-bottom: 25rem;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 .error404__link:hover {
   color: #ff6060;
 }
 
-/* STYLE SPÉCIFIQUE POUR LA BANNIÈRE DE LA PAGE D'ACCUEIL/HOME */
-.homeBanner {
-  position: relative;
+.homeBanner, .aboutBanner {
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 223px;
-  width: 88%;
+  align-items: center;
   background-size: cover;
   background-position: center;
+  position: relative;
+  width: 88%;
   border-radius: 15px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   margin: 10px auto;
+}
+
+/* STYLE SPÉCIFIQUE POUR LA BANNIÈRE DE LA PAGE D'ACCUEIL/HOME */
+.homeBanner {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
+  height: 223px;
 }
 .homeBanner .banner__image {
   display: none;
@@ -173,16 +181,7 @@
 
 /* STYLE SPÉCIFIQUE POUR LA BANNIÈRE DE LA PAGE À PROPOS/ABOUT */
 .aboutBanner {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 223px;
-  width: 88%;
-  background-size: cover;
-  background-position: center;
-  border-radius: 15px;
-  margin: 10px auto;
 }
 .aboutBanner .banner__image {
   display: none;
@@ -201,16 +200,20 @@
 
 /* STYLE SPÉCIFIQUE POUR LA BANNIÈRE GALERIE DE LA PAGE LOGEMENTS/HOUSINGS */
 .header {
-  display: flex; /* Disposition en ligne */
-  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+  justify-content: space-between;
   padding: 2.5rem 5rem; /* Espacement interne pour aérer le contenu */
   background-color: #fff;
 }
 
 .header__logo {
   display: flex;
-  align-items: center; /* Centre le logo verticalement */
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 .header__logo img {
   width: 210px; /* Taille du logo */
@@ -218,12 +221,15 @@
 }
 
 .header__nav {
-  display: flex; /* Les liens sont affichés en ligne */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   gap: 4rem; /* Espacement entre les liens */
 }
 .header__nav a {
   text-decoration: none; /* Supprime le soulignement des liens */
-  color: #000000;
+  color: #000;
   font-size: 1.4rem;
   font-weight: 500;
 }
@@ -244,15 +250,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 0.875rem;
 }
 .footer .footer__logo {
   max-width: 100px;
-  margin-top: 1rem;
+  margin-top: 20px;
 }
 .footer p {
   font-size: 0.875rem;
-  margin-top: 1rem;
+  margin-top: 20px;
 }
 
 * {

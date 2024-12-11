@@ -1,17 +1,14 @@
+@use '../utils/placeholders' as *; // Import direct du placeholder sans namespace
+// Sass a changé la manière dont les sélecteurs composés sont gérés. En supprimant le namespace ou en utilisant *, on rend le placeholder accessible directement et on évite l'erreur liée à l'extension d'un sélecteur composé
+@use '../utils/mixins' as mixins;
+@use '../utils/variables' as vars;
+
 /* STYLE SPÉCIFIQUE POUR LA BANNIÈRE DE LA PAGE D'ACCUEIL/HOME */
 .homeBanner {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 223px; 
-  width: 88%; 
-  background-size: cover;
-  background-position: center;
-  border-radius: 15px; 
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  margin: 10px auto;
-  text-align: center; 
+  @extend %banner-common; // Utilisation directe du placeholder
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+  text-align: center;
+  height: vars.$banner-height;
 
   .banner__image {
     display: none; // L'image est utilisée comme background
@@ -31,48 +28,22 @@
   }
 
   &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6); 
-    border-radius: 15px;
-    z-index: 0;
+    @include mixins.banner-overlay(rgba(0, 0, 0, 0.6)); // Noir avec 60% d'opacité
   }
 }
 
 /* STYLE SPÉCIFIQUE POUR LA BANNIÈRE DE LA PAGE À PROPOS/ABOUT */
-
 .aboutBanner {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 223px; // Hauteur identique à celle de la bannière d'accueil
-  width: 88%; // Largeur identique à celle de la bannière d'accueil
-  background-size: cover;
-  background-position: center;
-  border-radius: 15px;
-  margin: 10px auto; // Espacement autour de la bannière
-
+  @extend %banner-common; // Utilisation directe du placeholder
+  height: vars.$banner-height;
+  
   .banner__image {
     display: none; // L'image est utilisée comme background
   }
 
   &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3); // Overlay légèrement sombre
-    border-radius: 15px;
-    z-index: 0; 
+    @include mixins.banner-overlay(rgba(0, 0, 0, 0.3)); // Noir avec 30% d'opacité
   }
 }
-
 
 /* STYLE SPÉCIFIQUE POUR LA BANNIÈRE GALERIE DE LA PAGE LOGEMENTS/HOUSINGS */
