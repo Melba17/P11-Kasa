@@ -1,41 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // Import de Link pour la navigation
-import Banner from '../components/banner'; // Import du composant Banner
-import logements from '../data/logements'; // Import du JSON
+import Banner from '../components/banner'; // Importation du composant Banner pour afficher une bannière
+import Gallery from '../components/gallery'; // Importation du composant Gallery pour afficher la galerie des logements
+import logements from '../data/logements'; // Importation des données JSON contenant la liste des logements
 
-
-
+// Définition du composant Home : composant principal pour la page d'accueil
 function Home() {
   return (
-    <div>
+    <div> {/* Conteneur principal de la page d'accueil */}
       {/* Composant Bannière */}
       <Banner
-        imageSrc="/img/home.jpg"
-        altText="Paysage de la bannière de la page d'accueil"
-        overlayText="Chez vous, partout et ailleurs"
-        className="homeBanner"
+        imageSrc="/img/home.jpg" // Source de l'image affichée dans la bannière
+        altText="Paysage de la bannière de la page d'accueil" // Texte alternatif pour l'accessibilité
+        overlayText="Chez vous, partout et ailleurs" // Texte superposé sur la bannière
+        className="homeBanner" // Classe CSS spécifique pour la bannière de la page d'accueil
       />
-      <div className="home__gallery-container">
-        <div className="home__gallery">
-          {logements.map((logement) => (
-            <div key={logement.id} className="home__card">
-              <Link to={`/housings/${logement.id}`}>
-                <img
-                  src={logement.cover}
-                  alt={logement.title}
-                  className="home__card-image"
-                />
-                <div className="home__card-overlay"></div> {/* l'Overlay est un élément distinct pour maximiser la flexibilité et la clarté. Il est positionné au-dessus de l'image => Voile avec gradient */}
-                <h3 className="home__card-title">{logement.title}</h3>
-              </Link>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* Composant Galerie */}
+      <Gallery logements={logements} /> {/* Passe les données JSON "logements" en tant que prop */}
     </div>
   );
 }
 
-export default Home;
-
- 
+export default Home; // Exportation du composant Home pour qu'il soit utilisé dans App.jsx

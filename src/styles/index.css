@@ -10,8 +10,20 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box; /* Inclut le padding dans la largeur */
+  box-sizing: border-box;
   overflow: hidden; /* Empêche les enfants de déborder */
+}
+@media (max-width: 768px) {
+  .home__gallery-container {
+    padding: 35px;
+    background-color: transparent;
+    padding: 0;
+  }
+}
+@media (max-width: 450px) {
+  .home__gallery-container {
+    margin: auto;
+  }
 }
 
 .home__gallery {
@@ -22,15 +34,42 @@
   max-width: 100%; /* Empêche de dépasser la largeur parent */
   justify-items: center; /* Centre les cartes dans les colonnes */
 }
+@media (max-width: 1024px) {
+  .home__gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .home__gallery {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
+  }
+}
+@media (max-width: 450px) {
+  .home__gallery {
+    margin: 15px 0 30px 0;
+  }
+}
 
 .home__card {
   position: relative;
-  width: 340px;
-  height: 340px;
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  aspect-ratio: 1/1;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Pour le voile superposé */
+}
+@media (max-width: 450px) {
+  .home__card {
+    max-width: 100%;
+    height: 255px;
+    aspect-ratio: unset;
+  }
 }
 .home__card:hover {
   transform: scale(1.05);
@@ -61,50 +100,172 @@
   font-weight: 700;
   z-index: 2;
 }
-
-.about__sections {
-  margin: 35px auto;
-  padding: 0 20px;
-  max-width: 1050px;
+@media (max-width: 1024px) {
+  .home__card-title {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .home__card-title {
+    font-size: 0.9rem;
+  }
 }
 
-.about__section {
-  margin-bottom: 35px;
-  background-color: #f6f6f6;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.about__section-header {
+.housing__details {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   justify-content: space-between;
-  padding: 20px;
-  background-color: #ff6060;
-  border-radius: 10px;
-  color: #fff;
-  font-weight: 700;
-  cursor: pointer;
+  margin: 30px 85px;
 }
-.about__section-header h3 {
+@media (max-width: 1024px) {
+  .housing__details {
+    flex-direction: column;
+    margin: 30px 60px 50px;
+    gap: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .housing__details {
+    margin: 30px 45px 50px;
+  }
+}
+@media (max-width: 450px) {
+  .housing__details {
+    margin: 20px 25px 50px;
+  }
+}
+.housing__details .housing-info__title {
+  color: #ff6060;
+  font-size: 2.25rem;
+  font-weight: 500;
   margin: 0;
-  font-size: 1.3rem;
 }
-.about__section-header .arrow {
-  width: 30px;
-  height: 30px;
-  transition: transform 0.3s ease;
+@media (max-width: 1024px) {
+  .housing__details .housing-info__title {
+    font-size: 1.8rem;
+  }
 }
-.about__section-header .arrow.open {
-  transform: rotate(180deg);
+@media (max-width: 450px) {
+  .housing__details .housing-info__title {
+    font-size: 1.4rem;
+  }
 }
-.about__section-content {
-  padding: 20px;
-  font-size: 1.1rem;
-  line-height: 1.5;
-  color: #333;
-  background-color: #f6f6f6;
+.housing__details .housing-info__location {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #000;
+  margin: 5px 0;
+}
+@media (max-width: 1024px) {
+  .housing__details .housing-info__location {
+    font-size: 1rem;
+    margin: 20px 0;
+  }
+}
+@media (max-width: 450px) {
+  .housing__details .housing-info__location {
+    font-size: 0.9rem;
+    margin: 15px 0;
+  }
+}
+.housing__details .housing-info__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+@media (max-width: 450px) {
+  .housing__details .housing-info__tags {
+    gap: 10px;
+  }
+}
+.housing__details .housing-info__tag {
+  background: #ff6060;
+  color: white;
+  padding: 7px 15px;
+  margin: 15px 0;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+@media (max-width: 768px) {
+  .housing__details .housing-info__tag {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    margin: 0;
+  }
+}
+.housing__details .housing__host-rating {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+@media (max-width: 1024px) {
+  .housing__details .housing__host-rating {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.housing__details .housing__host-rating .rating {
+  display: flex;
+  gap: 5px;
+}
+@media (max-width: 1024px) {
+  .housing__details .housing__host-rating .rating {
+    order: 1;
+  }
+}
+.housing__details .housing__host-rating .rating__star {
+  width: 28px;
+  height: 28px;
+}
+@media (max-width: 1024px) {
+  .housing__details .housing__host-rating .rating__star {
+    width: 23px;
+    height: 23px;
+  }
+}
+@media (max-width: 450px) {
+  .housing__details .housing__host-rating .rating__star {
+    width: 18px;
+    height: 18px;
+  }
+}
+.housing__details .housing__host-rating .host-info {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+}
+@media (max-width: 1024px) {
+  .housing__details .housing__host-rating .host-info {
+    order: 2;
+  }
+}
+.housing__details .housing__host-rating .host-info__text {
+  text-align: right;
+}
+.housing__details .housing__host-rating .host-info__first-name, .housing__details .housing__host-rating .host-info__last-name {
+  display: block;
+  color: #ff6060;
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+@media (max-width: 1024px) {
+  .housing__details .housing__host-rating .host-info__first-name, .housing__details .housing__host-rating .host-info__last-name {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 450px) {
+  .housing__details .housing__host-rating .host-info__first-name, .housing__details .housing__host-rating .host-info__last-name {
+    font-size: 0.9rem;
+  }
+}
+.housing__details .housing__host-rating .host-info__picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .error404 {
@@ -139,12 +300,13 @@
   color: #ff6060;
 }
 
-.homeBanner, .aboutBanner {
+.homeBanner, .aboutBanner, .housingsBanner {
   display: flex;
   justify-content: center;
   align-items: center;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   position: relative;
   width: 88%;
   border-radius: 15px;
@@ -157,6 +319,11 @@
   text-align: center;
   height: 223px;
 }
+@media (max-width: 1024px) {
+  .homeBanner {
+    height: 111px;
+  }
+}
 .homeBanner .banner__image {
   display: none;
 }
@@ -166,6 +333,19 @@
   z-index: 1;
   color: #fff;
   text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000, 0px 4px 5px rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 1024px) {
+  .homeBanner .banner__text {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 450px) {
+  .homeBanner .banner__text {
+    font-size: 1.4rem;
+    text-align: left;
+    padding-left: 5%;
+    padding-right: 30%;
+  }
 }
 .homeBanner::before {
   content: "";
@@ -183,6 +363,11 @@
 .aboutBanner {
   height: 223px;
 }
+@media (max-width: 450px) {
+  .aboutBanner {
+    height: 111px;
+  }
+}
 .aboutBanner .banner__image {
   display: none;
 }
@@ -199,6 +384,232 @@
 }
 
 /* STYLE SPÉCIFIQUE POUR LA BANNIÈRE GALERIE DE LA PAGE LOGEMENTS/HOUSINGS */
+.housingsBanner {
+  height: 415px;
+  overflow: hidden;
+  position: relative;
+}
+@media (max-width: 768px) {
+  .housingsBanner {
+    height: 255px;
+  }
+}
+.housingsBanner .banner__image {
+  display: none;
+}
+.housingsBanner .banner__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-31%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+.housingsBanner .banner__arrow--left {
+  left: 1px;
+  transform: translateY(-50%) rotate(180deg);
+}
+.housingsBanner .banner__arrow--right {
+  right: 1px;
+}
+.housingsBanner .banner__arrow img {
+  width: 79px;
+  height: 79px;
+}
+@media (max-width: 768px) {
+  .housingsBanner .banner__arrow img {
+    width: 24px;
+    height: 24px;
+  }
+}
+.housingsBanner .banner__counter {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  .housingsBanner .banner__counter {
+    display: none;
+  }
+}
+
+.collapses {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.collapses__header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #ff6060;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 700;
+  height: 52px;
+  cursor: pointer;
+}
+.collapses__header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+@media (max-width: 768px) {
+  .collapses__header h3 {
+    font-size: 0.9rem;
+  }
+}
+.collapses__header .arrow {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s ease;
+}
+@media (max-width: 768px) {
+  .collapses__header .arrow {
+    width: 26px;
+    height: 26px;
+  }
+}
+.collapses__header .arrow.open {
+  transform: rotate(180deg);
+}
+.collapses__content {
+  margin-top: -8px;
+  position: relative;
+  z-index: 1;
+  transform-origin: top;
+  transform: scaleY(0);
+  opacity: 0;
+  overflow: hidden;
+  height: var(--collapse-height, 0);
+  padding: 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  background-color: #f6f6f6;
+  color: #333;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.collapses__content.open {
+  transform: scaleY(1);
+  opacity: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+.collapses__content.close {
+  transform: scaleY(0);
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  height: 0;
+  background-color: transparent;
+}
+@media (max-width: 1024px) {
+  .collapses__content {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .collapses__content {
+    font-size: 0.9rem;
+  }
+}
+
+.about .collapses__content {
+  --collapse-height: 110px;
+}
+@media (max-width: 768px) {
+  .about .collapses__content {
+    --collapse-height: 130px;
+  }
+}
+@media (max-width: 450px) {
+  .about .collapses__content {
+    --collapse-height: 180px;
+  }
+}
+
+.about__sections {
+  width: 70%;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.about__sections .collapses {
+  margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+  .about__sections {
+    width: 88%;
+  }
+}
+@media (max-width: 450px) {
+  .about__sections {
+    margin: 30px auto;
+  }
+}
+
+.housing .collapses__content {
+  --collapse-height: 210px;
+}
+@media (max-width: 1024px) {
+  .housing .collapses__content {
+    --collapse-height: 160px;
+  }
+}
+
+.housing__collapses {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 88%;
+  margin: auto;
+  margin-bottom: 50px;
+  box-sizing: border-box;
+}
+.housing__collapses .collapses {
+  width: 582px;
+}
+@media (max-width: 1340px) {
+  .housing__collapses .collapses {
+    width: 540px;
+  }
+}
+@media (max-width: 1250px) {
+  .housing__collapses .collapses {
+    width: 500px;
+  }
+}
+@media (max-width: 1160px) {
+  .housing__collapses .collapses {
+    width: 440px;
+  }
+}
+@media (max-width: 1024px) {
+  .housing__collapses {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 30px;
+  }
+  .housing__collapses .collapses {
+    width: 100%;
+  }
+}
+
+.equipment-list {
+  list-style-type: none;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -208,6 +619,16 @@
   padding: 2.5rem 5rem; /* Espacement interne pour aérer le contenu */
   background-color: #fff;
 }
+@media (max-width: 768px) {
+  .header {
+    padding: 1.5rem 2rem; /* Réduit le padding pour économiser de l'espace */
+  }
+}
+@media (max-width: 450px) {
+  .header {
+    padding: 1rem 1.5rem; /* Réduit encore davantage le padding pour petits écrans */
+  }
+}
 
 .header__logo {
   display: flex;
@@ -216,8 +637,18 @@
   justify-content: center;
 }
 .header__logo img {
-  width: 210px; /* Taille du logo */
+  width: 210px; /* Taille du logo pour les écrans larges */
   height: auto; /* Préserve les proportions */
+}
+@media (max-width: 768px) {
+  .header__logo img {
+    width: 180px; /* Réduction pour les écrans intermédiaires */
+  }
+}
+@media (max-width: 450px) {
+  .header__logo img {
+    width: 140px; /* Réduction supplémentaire pour les très petits écrans */
+  }
 }
 
 .header__nav {
@@ -225,6 +656,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  /* Conserve l'alignement horizontal */
   gap: 4rem; /* Espacement entre les liens */
 }
 .header__nav a {
@@ -235,6 +667,22 @@
 }
 .header__nav a.active {
   text-decoration: underline; /* Souligne le lien actif */
+}
+@media (max-width: 768px) {
+  .header__nav {
+    gap: 1.5rem; /* Réduit l'espacement entre les liens */
+  }
+  .header__nav a {
+    font-size: 1.12rem; /* Réduit légèrement la taille de la police => calc() permet de réduire ici grâce à un facteur inférieur à 1, sinon au-dessus de 1 ça agrandit */
+  }
+}
+@media (max-width: 450px) {
+  .header__nav {
+    gap: 0.8rem; /* Réduction supplémentaire de l'espacement entre les liens */
+  }
+  .header__nav a {
+    font-size: 0.84rem; /* Réduit encore davantage la taille de la police */
+  }
 }
 
 .footer {
@@ -250,15 +698,45 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.875rem;
+  /* Colonne par défaut */
+  gap: 0.875rem; /* Espacement par défaut */
+}
+@media (max-width: 768px) {
+  .footer .footer__content {
+    gap: 0.4375rem; /* Réduction modérée de l'espacement */
+  }
+}
+@media (max-width: 450px) {
+  .footer .footer__content {
+    gap: 0.175rem; /* Réduction drastique de l'espacement */
+  }
 }
 .footer .footer__logo {
-  max-width: 100px;
-  margin-top: 20px;
+  max-width: 100px; /* Taille fixe du logo */
+  margin-top: 20px; /* Espace autour du logo */
+}
+@media (max-width: 450px) {
+  .footer .footer__logo {
+    margin-top: 10px; /* Réduit encore l'espace au-dessus du logo */
+  }
 }
 .footer p {
   font-size: 0.875rem;
-  margin-top: 20px;
+  margin: 20px auto 0; /* Centre le texte et ajuste l'espacement */
+  line-height: 1.2;
+  white-space: nowrap; /* Empêche le passage à la ligne */
+}
+@media (max-width: 768px) {
+  .footer p {
+    font-size: 0.7875rem; /* Réduction légère de la police */
+    margin-top: 10px; /* Réduit l'espace au-dessus du texte */
+  }
+}
+@media (max-width: 450px) {
+  .footer p {
+    font-size: 0.7rem; /* Réduction supplémentaire pour les petits écrans */
+    margin-top: 6px; /* Réduction encore plus importante de l'espace */
+  }
 }
 
 * {

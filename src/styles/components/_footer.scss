@@ -2,26 +2,49 @@
 @use '../utils/variables' as vars;
 
 .footer {
-    background-color: vars.$black; 
-    color: vars.$white; 
-    text-align: center; 
-    padding: vars.$base-padding 0;
-    width: 100%;  
-    bottom: 0; /* Ancrer en bas */
-  
-    .footer__content {
-      @include mixins.flex-center(column);
-      gap: vars.$small-font-size;
+  background-color: vars.$black; 
+  color: vars.$white; 
+  text-align: center; 
+  padding: vars.$base-padding 0;
+  width: 100%;  
+  bottom: 0; /* Ancrer en bas */
+
+  .footer__content {
+    @include mixins.flex-center(column); /* Colonne par défaut */
+    gap: vars.$small-font-size; /* Espacement par défaut */
+
+    @media (max-width: 768px) {
+      gap: calc(vars.$small-font-size * 0.5); /* Réduction modérée de l'espacement */
     }
-  
-    .footer__logo {
-      max-width: 100px;
-      margin-top: vars.$base-margin;
-    }
-  
-    p {
-      font-size: vars.$small-font-size;
-      margin-top: vars.$base-margin; 
+
+    @media (max-width: 450px) {
+      gap: calc(vars.$small-font-size * 0.2); /* Réduction drastique de l'espacement */
     }
   }
-  
+
+  .footer__logo {
+    max-width: 100px; /* Taille fixe du logo */
+    margin-top: vars.$base-margin; /* Espace autour du logo */
+
+    @media (max-width: 450px) {
+      margin-top: calc(vars.$base-margin * 0.5); /* Réduit encore l'espace au-dessus du logo */
+    }
+  }
+
+  p {
+    font-size: vars.$small-font-size; 
+    margin: vars.$base-margin auto 0; /* Centre le texte et ajuste l'espacement */
+    line-height: 1.2; 
+    white-space: nowrap; /* Empêche le passage à la ligne */
+
+    @media (max-width: 768px) {
+      font-size: calc(vars.$small-font-size * 0.9); /* Réduction légère de la police */
+      margin-top: calc(vars.$base-margin * 0.5); /* Réduit l'espace au-dessus du texte */
+    }
+
+    @media (max-width: 450px) {
+      font-size: calc(vars.$small-font-size * 0.8); /* Réduction supplémentaire pour les petits écrans */
+      margin-top: calc(vars.$base-margin * 0.3); /* Réduction encore plus importante de l'espace */
+    }
+  }
+}

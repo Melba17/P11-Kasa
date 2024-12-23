@@ -1,0 +1,158 @@
+@use '../utils/mixins' as mixins;
+@use '../utils/variables' as vars;
+
+.housing {
+  &__details {
+    display: flex;
+    justify-content: space-between; 
+    margin: 30px 85px;
+
+    @media (max-width: 1024px) {
+      flex-direction: column; 
+      margin: 30px 60px 50px;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      margin: 30px 45px 50px;
+    }
+
+    @media (max-width: 450px) {
+      margin: 20px 25px 50px;
+    }
+
+    .housing-info {
+      &__title {
+        color: vars.$primary-color;
+        font-size: vars.$extra-large-font-size;
+        font-weight: vars.$font-weight-medium;
+        margin: 0;
+
+        @media (max-width: 1024px) {
+          font-size: 1.8rem; 
+        }
+
+        @media (max-width: 450px) {
+          font-size: 1.4rem; 
+        }
+      }
+
+      &__location {
+        font-size: 1.125rem;
+        font-weight: vars.$font-weight-medium;
+        color: vars.$black;
+        margin: 5px 0;
+
+        @media (max-width: 1024px) {
+          font-size: 1rem; 
+          margin: 20px 0;
+        }
+
+        @media (max-width: 450px) {
+          font-size: 0.9rem; 
+          margin: 15px 0;
+        }
+      }
+
+      &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        @media (max-width: 450px) {
+          gap: 10px;
+        }
+      }
+
+      &__tag {
+        background: #ff6060;
+        color: white;
+        padding: 7px 15px;
+        margin: 15px 0;
+        border-radius: 10px;
+        font-size: vars.$small-font-size;
+        font-weight: vars.$font-weight-bold;
+
+        @media (max-width: 768px) {
+          font-size: 0.8rem;
+          padding: 5px 10px; 
+          margin: 0;
+        }
+      }
+    }
+
+    .housing__host-rating {
+      display: flex;
+      flex-direction: column; 
+      justify-content: space-around;
+      align-items: center; 
+     
+      @media (max-width: 1024px) {
+        flex-direction: row; 
+        justify-content: space-between;    
+      }
+
+      .rating {
+        display: flex;
+        gap: 5px;
+      
+        @media (max-width: 1024px) {
+          order: 1; // Rating se place en premier (à gauche) sous 1024px
+        }
+
+        &__star {
+          width: 28px;
+          height: 28px;
+
+          @media (max-width: 1024px) {
+            width: 23px;
+            height: 23px; 
+          }
+
+          @media (max-width: 450px) {
+            width: 18px;
+            height: 18px; 
+          }
+        }
+      }
+
+      .host-info {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+        align-items: center; 
+        
+        @media (max-width: 1024px) {
+          order: 2; // Host-info se place à droite après rating sous 1024px
+        }
+
+        &__text {
+          text-align: right;
+        }
+
+        &__first-name,
+        &__last-name {
+          display: block;
+          color: vars.$primary-color;
+          font-weight: vars.$font-weight-medium;
+          font-size: 1.125rem;
+
+          @media (max-width: 1024px) {
+            font-size: 1rem; 
+          }
+
+          @media (max-width: 450px) {
+            font-size: 0.9rem; 
+          }
+        }
+
+        &__picture {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

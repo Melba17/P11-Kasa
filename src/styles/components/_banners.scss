@@ -10,6 +10,10 @@
   text-align: center;
   height: vars.$banner-height;
 
+  @media (max-width: 1024px) {
+    height: 111px;
+  }
+  
   .banner__image {
     display: none; // L'image est utilisée comme background
   }
@@ -25,6 +29,17 @@
     -0.5px 0.5px 0 #000,  // Contour noir léger à gauche et en bas
     0.5px 0.5px 0 #000,   // Contour noir léger à droite et en bas
     0px 4px 5px rgba(0, 0, 0, 0.6); // Ombre douce étendue uniquement vers le bas
+
+      @media (max-width: 1024px) {
+        font-size: 1.6rem; 
+      }
+
+      @media (max-width: 450px) {
+        font-size: 1.4rem; 
+        text-align: left; 
+        padding-left: 5%; 
+        padding-right: 30%;
+      }
   }
 
   &::before {
@@ -36,14 +51,76 @@
 .aboutBanner {
   @extend %banner-common; // Utilisation directe du placeholder
   height: vars.$banner-height;
+
+  @media (max-width: 450px) {
+    height: 111px; 
+  }
   
   .banner__image {
     display: none; // L'image est utilisée comme background
   }
 
   &::before {
-    @include mixins.banner-overlay(rgba(0, 0, 0, 0.3)); // Noir avec 30% d'opacité
+    @include mixins.banner-overlay(rgba(0, 0, 0, 0.3)); // Noir avec 30% d'opacité 
   }
 }
 
 /* STYLE SPÉCIFIQUE POUR LA BANNIÈRE GALERIE DE LA PAGE LOGEMENTS/HOUSINGS */
+.housingsBanner {
+  @extend %banner-common;
+  height: 415px;
+  overflow: hidden;
+  position: relative;
+
+  @media (max-width: 768px) {
+    height: 255px;
+  }
+  
+  .banner__image {
+    display: none; // L'image est utilisée comme background
+  }
+
+  .banner__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-31%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+
+    &--left {
+      left: 1px;
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    &--right {
+      right: 1px;
+    }
+
+    img {
+      width: 79px; 
+      height: 79px;
+
+      @media (max-width: 768px) {
+        width: 24px; 
+        height: 24px;
+      }
+    }
+  }
+
+  .banner__counter {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+
+    @media (max-width: 768px) { 
+      display: none;  
+    }
+  }
+}

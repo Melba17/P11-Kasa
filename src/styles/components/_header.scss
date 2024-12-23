@@ -1,36 +1,70 @@
-@use '../utils/mixins' as mixins;
+@use '../utils/mixins' as mixins; 
 @use '../utils/variables' as vars;
 
 .header {
-    @include mixins.flex-center;
-    justify-content: space-between;  
-    padding: 2.5rem 5rem; /* Espacement interne pour aérer le contenu */
-    background-color: vars.$white;
-  }
-  
-  .header__logo {
+  @include mixins.flex-center;
+  justify-content: space-between;  
+  padding: 2.5rem 5rem; /* Espacement interne pour aérer le contenu */
+  background-color: vars.$white;
 
-    @include mixins.flex-center;
-  
+  @media (max-width: 768px) {
+    padding: 1.5rem 2rem; /* Réduit le padding pour économiser de l'espace */
+  }
+
+  @media (max-width: 450px) {
+    padding: 1rem 1.5rem; /* Réduit encore davantage le padding pour petits écrans */
+  }
+}
+
+.header__logo {
+  @include mixins.flex-center;
+
+  img {
+    width: 210px; /* Taille du logo pour les écrans larges */
+    height: auto; /* Préserve les proportions */
+  }
+
+  @media (max-width: 768px) {
     img {
-      width: 210px; /* Taille du logo */
-      height: auto; /* Préserve les proportions */
+      width: 180px; /* Réduction pour les écrans intermédiaires */
     }
   }
-  
-  .header__nav {
-    @include mixins.flex-center(row);
-    gap: 4rem; /* Espacement entre les liens */
-  
+
+  @media (max-width: 450px) {
+    img {
+      width: 140px; /* Réduction supplémentaire pour les très petits écrans */
+    }
+  }
+}
+
+.header__nav {
+  @include mixins.flex-center(row); /* Conserve l'alignement horizontal */
+  gap: 4rem; /* Espacement entre les liens */
+
+  a {
+    text-decoration: none; /* Supprime le soulignement des liens */
+    color: vars.$black;
+    font-size: vars.$large-font-size; 
+    font-weight: vars.$font-weight-medium;
+
+    &.active {
+      text-decoration: underline; /* Souligne le lien actif */   
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 1.5rem; /* Réduit l'espacement entre les liens */
+    
     a {
-      text-decoration: none; /* Supprime le soulignement des liens */
-      color: vars.$black;
-      font-size: vars.$large-font-size;
-      font-weight: vars.$font-weight-medium;
-  
-      &.active {
-        text-decoration: underline; /* Souligne le lien actif */   
-      } 
+      font-size: calc(vars.$large-font-size * 0.8); /* Réduit légèrement la taille de la police => calc() permet de réduire ici grâce à un facteur inférieur à 1, sinon au-dessus de 1 ça agrandit */
     }
   }
-  
+
+  @media (max-width: 450px) {
+    gap: 0.8rem; /* Réduction supplémentaire de l'espacement entre les liens */
+    
+    a {
+      font-size: calc(vars.$large-font-size * 0.6); /* Réduit encore davantage la taille de la police */
+    }
+  }
+}

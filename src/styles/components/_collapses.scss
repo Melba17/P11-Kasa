@@ -1,0 +1,170 @@
+@use '../utils/mixins' as mixins;
+@use '../utils/variables' as vars;
+
+.collapses {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative; 
+
+  &__header {
+    position: relative; 
+    z-index: 2; 
+    @include mixins.flex-center;
+    justify-content: space-between;
+    padding: vars.$base-padding;
+    background-color: vars.$primary-color;
+    border-radius: 10px;
+    color: vars.$white;
+    font-weight: vars.$font-weight-bold;
+    height: 52px;
+    cursor: pointer;
+
+    h3 {
+      margin: 0;
+      font-size: 1.3rem;
+
+      @media (max-width: 768px) {
+        font-size: 0.9rem;
+      }
+    }
+    .arrow {
+      width: 32px;
+      height: 32px;
+      transition: transform 0.3s ease;
+
+      @media (max-width: 768px) {
+        width: 26px;
+        height: 26px;
+      }
+    }
+
+    .arrow.open {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__content {
+    margin-top: -8px; 
+    position: relative; 
+    z-index: 1; 
+    transform-origin: top;
+    transform: scaleY(0); // Fermé par défaut
+    opacity: 0; // Invisible par défaut
+    overflow: hidden; // Empêche le débordement
+    height: var(--collapse-height, 0); // Hauteur dynamique via variable CSS
+    padding: 0; // Pas de padding en mode fermé
+    font-size: 1.1rem;
+    line-height: 1.5;
+    background-color: vars.$light-bg; // Fond appliqué uniquement à l'ouverture
+    color: vars.$dark-text;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+    &.open {
+      transform: scaleY(1); // Ouvert
+      opacity: 1; // Visible
+      padding: vars.$base-padding; // Ajout du padding
+      overflow-y: auto; // Active le défilement vertical
+    }
+
+    &.close {
+      transform: scaleY(0); // Fermé
+      opacity: 0; // Invisible
+      padding: 0;
+      margin: 0;
+      height: 0;
+      background-color: transparent;
+    }
+
+    @media (max-width: 1024px) {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.about .collapses__content {
+  --collapse-height: 110px; // Hauteur spécifique pour About
+
+  @media (max-width: 768px) {
+    --collapse-height: 130px; 
+  }
+
+  @media (max-width: 450px) {
+    --collapse-height: 180px; 
+  }
+}
+
+// Conteneur pour la page About
+.about__sections {
+  width: 70%;
+  margin: 40px auto; // Marges globales pour le conteneur principal
+  display: flex;
+  flex-direction: column;
+  gap: vars.$base-padding;
+
+  .collapses {
+    margin-bottom: 10px; 
+  }
+
+  @media (max-width: 768px) {
+    width: 88%;
+  }
+
+  @media (max-width: 450px) {
+    margin: 30px auto;
+  }
+}
+
+// Hauteurs dynamiques par page
+.housing .collapses__content {
+  --collapse-height: 210px; // Hauteur spécifique pour Housing
+
+  @media (max-width: 1024px) {
+    --collapse-height: 160px; 
+  }
+}
+
+// Conteneur pour la page Housing
+.housing__collapses {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; 
+  width: 88%;
+  margin: auto;
+  margin-bottom: 50px;
+  box-sizing: border-box;
+
+  .collapses {
+    width: 582px; 
+
+    @media (max-width: 1340px){
+    width : 540px;
+    }
+
+    @media (max-width: 1250px){
+      width : 500px;
+      }
+      
+    @media (max-width: 1160px){
+        width : 440px;
+        }
+
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column; 
+    align-items: stretch; // Alignement vertical uniforme
+    gap: 30px;
+
+    .collapses { 
+      width: 100%; 
+    }
+  }
+}
+
+.equipment-list {
+  list-style-type: none; // Supprime les puces
+}
