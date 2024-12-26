@@ -7,9 +7,9 @@ function HousingInfo({ title, location, tags }) {
       <h1 className="housing-info__title">{title}</h1> {/* Affiche le titre passé en prop */}
       <p className="housing-info__location">{location}</p> {/* Affiche l'emplacement passé en prop */}
       <div className="housing-info__tags"> {/* Conteneur pour les tags */}
-        {tags.map((tag, index) => ( // Parcourt le tableau de tags
+        {tags.map((tag) => ( // Parcourt le tableau de tags
           <span 
-            key={index} // Clé unique pour chaque élément généré automatiquement par la méthode map() qui est utilisée pour parcourir le tableau tags / L'index est simplement la position de l'élément dans le tableau commençant à 0
+            key={tag} // Clé unique pour chaque élément généré automatiquement par la méthode map() qui est utilisée pour parcourir le tableau tags 
             className="housing-info__tag" // Classe CSS pour styliser chaque tag
           >
             {tag} {/* Affiche le contenu du tag */}

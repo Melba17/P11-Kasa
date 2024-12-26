@@ -11,6 +11,17 @@
       color: vars.$primary-color;
       margin-top: 20rem;
       margin: 20rem 0 3rem;
+
+      @media (max-width: 1024px) { 
+        font-size: 12rem; 
+      }
+
+      @media (max-width: 768px) { 
+        font-size: 10rem; 
+      }
+      @media (max-width: 450px) { 
+        font-size: 9rem; 
+      }
     }
   
     &__message {
@@ -18,6 +29,22 @@
       font-weight: vars.$font-weight-medium;
       color: vars.$primary-color;
       margin-bottom: 5rem;
+
+      @media (max-width: 1024px) { 
+        font-size: 1.8rem; 
+        margin-left: 60px;
+        margin-right: 60px;
+      }
+
+      @media (max-width: 768px) { 
+        font-size: vars.$large-font-size;
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+
+      @media (max-width: 450px) { 
+        font-size: 1.2rem; 
+      }
     }
   
     &__link {
@@ -28,6 +55,10 @@
       margin-bottom: 25rem;
       transition: color 0.3s ease;
   
+      @media (max-width: 768px) { 
+        font-size: 1rem; 
+      }
+
       &:hover {
         color: vars.$primary-color;
       }

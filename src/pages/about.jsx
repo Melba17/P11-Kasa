@@ -12,9 +12,9 @@ function About() {
         className="aboutBanner" // Classe CSS spécifique pour styliser cette bannière
       />
       <div className="about__sections"> {/* Conteneur pour les sections repliables */}
-        {aboutSections.map((section, index) => ( // Parcourt le tableau aboutSections pour générer une section repliable pour chaque élément
+        {aboutSections.map((section) => ( // Parcourt le tableau aboutSections pour générer une section repliable pour chaque élément
           <Collapses 
-            key={index} // Clé unique basée sur l'index 
+            key={section.title} // Clé unique basée sur le titre de la section 
             title={section.title} // Titre de la section, extrait du fichier JS
             content={section.content} // Contenu de la section, extrait du fichier JS
           />

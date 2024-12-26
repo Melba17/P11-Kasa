@@ -9,7 +9,7 @@ function Footer() { // Définition d'un composant fonctionnel Footer
           className="footer__logo" // Classe CSS pour le style de l'image du logo
         />
         <p> {/* Élément de paragraphe pour afficher le texte de copyright */}
-          © 2024 Kasa. All rights reserved {/* Texte affichant l'année actuelle et les droits d'auteur */}
+          © 2025 Kasa. All rights reserved {/* Texte affichant l'année actuelle et les droits d'auteur */}
         </p>
       </div>
     </footer>

@@ -87,7 +87,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)); /* Voile du haut vers le bas */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)); /* Voile du haut vers le bas */
   z-index: 1;
 }
 .home__card-title {
@@ -282,11 +282,45 @@
   margin-top: 20rem;
   margin: 20rem 0 3rem;
 }
+@media (max-width: 1024px) {
+  .error404__title {
+    font-size: 12rem;
+  }
+}
+@media (max-width: 768px) {
+  .error404__title {
+    font-size: 10rem;
+  }
+}
+@media (max-width: 450px) {
+  .error404__title {
+    font-size: 9rem;
+  }
+}
 .error404__message {
   font-size: 2.25rem;
   font-weight: 500;
   color: #ff6060;
   margin-bottom: 5rem;
+}
+@media (max-width: 1024px) {
+  .error404__message {
+    font-size: 1.8rem;
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+}
+@media (max-width: 768px) {
+  .error404__message {
+    font-size: 1.4rem;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+@media (max-width: 450px) {
+  .error404__message {
+    font-size: 1.2rem;
+  }
 }
 .error404__link {
   font-size: 1.125rem;
@@ -295,6 +329,11 @@
   text-decoration: underline;
   margin-bottom: 25rem;
   transition: color 0.3s ease;
+}
+@media (max-width: 768px) {
+  .error404__link {
+    font-size: 1rem;
+  }
 }
 .error404__link:hover {
   color: #ff6060;

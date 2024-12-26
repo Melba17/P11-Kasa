@@ -14,6 +14,9 @@ function Banner({
   // Déclaration d'état avec déstructuration (car 2 éléments dans le tableau [currentIndex, setCurrentIndex]) que l'on peut extraire, ou Déclaration de state avec le hook useState
   const [currentIndex, setCurrentIndex] = useState(0); // État pour suivre l'index actuel dans le carrousel / useState est un hook de React nécessaire pour que l'interface utilisateur (UI) soit réactive, sans lui il serait impossible de suivre l'index actuel et de modifier dynamiquement l'image => useState(0) : initialise currentIndex à 0 (première image) / setCurrentIndex : fonction de mise à jour avec prevIndex qui permet de la modification de l'état=> globalement qui met à jour currentIndex lorsqu'on passe à l'image suivante ou précédente
 
+  // L'opérateur ternaire permet de déterminer l'image actuellement affichée : imageSrc par défaut pour les pages Accueil et À propos, ou une image du carrousel pour la page Logement
+  const displayedImage = isCarousel && images.length > 0 ? images[currentIndex] : imageSrc;
+
   // Fonction pour passer à l'image suivante
   const goToNext = () => {
     if (isCarousel && images.length > 0) { // Vérifie si le carrousel est activé et qu'il y a des images
@@ -30,16 +33,13 @@ function Banner({
     }
   };
 
-  // L'opérateur ternaire permet de déterminer l'image actuellement affichée : imageSrc par défaut, ou une image du carrousel
-  const displayedImage = isCarousel && images.length > 0 ? images[currentIndex] : imageSrc;
-
   return (
     // <div> est le conteneur principal pour appliquer l'image en arrière-plan avec son css associé 
     <div 
       className={`banner ${className}`} // banner = style de base qui garantit que tous les styles partagés sont toujours appliqués / ${className} = .homeBanner ou .aboutBanner ou housingsBanner = classes spécifiques  qui ajoutent uniquement les styles complémentaires
       style={{ backgroundImage: `url(${displayedImage})` }} // React utilise des objets JS pour les styles en ligne / La propriété style gère des styles dynamiques spécifiques, elle est utilisée ici pour appliquer une image d'arrière-plan dynamique (via backgroundImage). La valeur de l’image dépend de la variable JS displayedImage, déclarée au-dessus, car l'image n'est pas toujours la même. Il est impossible de passer une valeur dynamique directement via className dans React pour une propriété CSS comme backgroundImage
     > 
-      {/* <img> n'est là que pour assurer que l'image est détectable et compréhensible par les outils d'assistance (comme les lecteurs d'écran) et les moteurs de recherche */}
+      {/* <img> n'est là que pour assurer que l'image est détectable et compréhensible par les outils d'assistance (comme les lecteurs d'écran) et les moteurs de recherche (SEO)*/}
       <img
         src={displayedImage} // Source de l'image affichée
         alt={altText} // Texte alternatif pour l'image, utile pour l'accessibilité

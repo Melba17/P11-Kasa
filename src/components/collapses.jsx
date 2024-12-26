@@ -37,7 +37,7 @@ function Collapses({ title, content }) {
 // Validation des props avec PropTypes
 Collapses.propTypes = {
   title: PropTypes.string.isRequired, // Le titre doit être une chaîne de caractères et est obligatoire
-  content: PropTypes.node.isRequired, // Le contenu peut être n'importe quel élément React (texte, liste, balises, composants etc...) => plus flexible car couvre tous les types possible sans ajouter de complexité (ici content est soit du texte soit une liste) et est obligatoire
+  content: PropTypes.node.isRequired, // Le contenu peut être n'importe quel élément React (texte, liste => différentes balises, composants etc...) => plus flexible car couvre tous les types possible sans ajouter de complexité (ici content est soit du texte soit une liste), et est obligatoire
 };
 
 // Utilisation de .isRequired lorsque : 
