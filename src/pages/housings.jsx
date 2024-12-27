@@ -19,7 +19,7 @@ function Housings() {
   const logement = logements.find((logement) => logement.id === id); // Recherche le logement correspondant à l'ID dans les données / La méthode find() parcourt le tableau logements et retourne le premier élément qui satisfait à la condition spécifiée dans la fonction de rappel => logement.id === id, ici on compare l'id de l'objet logement avec l'id extrait de l'URL (au-dessus), lorsque celui-ci est trouvé la méthode find() retourne l'objet entier dont l'id correspond (ex: { id: "123", title: "Appartement cosy", location: "Paris" } qui sera stocké dans const logement)
 
   
-  // Si aucun id correspondant n'est trouvé, affiche la page d'erreur 404 / La gestion de l'erreur est déléguée à housings.jsx car à la base path="/housings/:id" du fichier App.jsx est une route valide...
+  // Si aucun id correspondant n'est trouvé, affiche la page d'erreur 404 / La gestion de l'erreur est déléguée à housings.jsx car à la base path="/housings/:id" du fichier App.jsx est à la base une route valide mais ici l'ID ne correspond à aucun logement dans les données JSON...
   if (!logement) {
     return <Error404 />; // ... Donc instanciation du composant Error404 si l'url est incorrecte
   }

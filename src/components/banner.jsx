@@ -14,9 +14,6 @@ function Banner({
   // Déclaration d'état avec déstructuration (car 2 éléments dans le tableau [currentIndex, setCurrentIndex]) que l'on peut extraire, ou Déclaration de state avec le hook useState
   const [currentIndex, setCurrentIndex] = useState(0); // État pour suivre l'index actuel dans le carrousel / useState est un hook de React nécessaire pour que l'interface utilisateur (UI) soit réactive, sans lui il serait impossible de suivre l'index actuel et de modifier dynamiquement l'image => useState(0) : initialise currentIndex à 0 (première image) / setCurrentIndex : fonction de mise à jour avec prevIndex qui permet de la modification de l'état=> globalement qui met à jour currentIndex lorsqu'on passe à l'image suivante ou précédente
 
-  // L'opérateur ternaire permet de déterminer l'image actuellement affichée : imageSrc par défaut pour les pages Accueil et À propos, ou une image du carrousel pour la page Logement
-  const displayedImage = isCarousel && images.length > 0 ? images[currentIndex] : imageSrc;
-
   // Fonction pour passer à l'image suivante
   const goToNext = () => {
     if (isCarousel && images.length > 0) { // Vérifie si le carrousel est activé et qu'il y a des images
@@ -32,6 +29,9 @@ function Banner({
       );
     }
   };
+
+  // L'opérateur ternaire permet de déterminer l'image actuellement affichée : imageSrc par défaut pour les pages Accueil et À propos, ou une image du carrousel pour la page Logement
+  const displayedImage = isCarousel && images.length > 0 ? images[currentIndex] : imageSrc;
 
   return (
     // <div> est le conteneur principal pour appliquer l'image en arrière-plan avec son css associé 
